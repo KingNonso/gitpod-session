@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from masterpiece import models
+
+
+@admin.register(models.Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('subject', 'body', 'created', 'updated')
+
+
