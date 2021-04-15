@@ -11,3 +11,7 @@ class CreateContactView(generic.CreateView):
     form_class = ContactForm
 
 
+def standard_python():
+    return 2 + 2
+
+

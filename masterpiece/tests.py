@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase, Client
 
 from masterpiece.models import Contact
+from . import views
 
 
 class ContactTestCase(TestCase):
@@ -17,7 +18,11 @@ class ContactTestCase(TestCase):
         self.assertEqual(lion.speak, 'roar')
         self.assertEqual(cat.speak, 'meow')
 
-    # def test_without_subject_fails(self):
-    #     self.assertRaises(self.client.post('/', {'body': 'some body contents'}), ValueError)
 
+class StandardPythonTest(TestCase):
+    def test_two_plus_two_passes(self):
+        self.assertEqual(views.standard_python(), 4)
+
+    def test_two_plus_two_fails(self):
+        self.assertNotEqual(views.standard_python(), 5)
 
